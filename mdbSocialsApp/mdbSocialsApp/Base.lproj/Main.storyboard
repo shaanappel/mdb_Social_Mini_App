@@ -140,10 +140,10 @@
             </objects>
             <point key="canvasLocation" x="996" y="1091"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign Up View Controller-->
         <scene sceneID="Lsw-KX-OlS">
             <objects>
-                <viewController id="Sn9-66-a4i" sceneMemberID="viewController">
+                <viewController id="Sn9-66-a4i" customClass="SignUpViewController" customModule="mdbSocialsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hcV-PO-91d"/>
                         <viewControllerLayoutGuide type="bottom" id="hmL-hy-aOZ"/>
@@ -241,6 +241,14 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="confirmPassword" destination="gpJ-yk-1L8" id="avh-I6-XLT"/>
+                        <outlet property="email" destination="oNu-te-S0s" id="nrC-MR-wsf"/>
+                        <outlet property="firstName" destination="777-eQ-r8V" id="79b-uS-e5f"/>
+                        <outlet property="lastName" destination="NfZ-hq-zio" id="Rbw-In-a6R"/>
+                        <outlet property="password" destination="B1N-zh-c2S" id="qkc-7i-8qv"/>
+                        <outlet property="username" destination="Ep5-88-zNk" id="PeV-cT-5uP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10V-Q6-iWa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -31,6 +31,7 @@
 		FCB9EAD51C8FDC540093F4ED /* ParseTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCB9EACF1C8FDC540093F4ED /* ParseTwitterUtils.framework */; };
 		FCB9EAD61C8FDC540093F4ED /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCB9EAD01C8FDC540093F4ED /* ParseUI.framework */; };
 		FCB9EAD81C8FE24B0093F4ED /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB9EAD71C8FE24B0093F4ED /* LoginViewController.swift */; };
+		FCB9EADA1C8FF22F0093F4ED /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB9EAD91C8FF22F0093F4ED /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		FCB9EACF1C8FDC540093F4ED /* ParseTwitterUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseTwitterUtils.framework; sourceTree = "<group>"; };
 		FCB9EAD01C8FDC540093F4ED /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		FCB9EAD71C8FE24B0093F4ED /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		FCB9EAD91C8FF22F0093F4ED /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 				FCB9EA811C8FD4BF0093F4ED /* AppDelegate.swift */,
 				FCB9EA831C8FD4BF0093F4ED /* ViewController.swift */,
 				FCB9EA851C8FD4BF0093F4ED /* Main.storyboard */,
+				FCB9EAD91C8FF22F0093F4ED /* SignUpViewController.swift */,
 				FCB9EA881C8FD4BF0093F4ED /* Assets.xcassets */,
 				FCB9EAD71C8FE24B0093F4ED /* LoginViewController.swift */,
 				FCB9EA8A1C8FD4BF0093F4ED /* LaunchScreen.storyboard */,
@@ -338,6 +341,7 @@
 			files = (
 				FCB9EAD81C8FE24B0093F4ED /* LoginViewController.swift in Sources */,
 				FCB9EA841C8FD4BF0093F4ED /* ViewController.swift in Sources */,
+				FCB9EADA1C8FF22F0093F4ED /* SignUpViewController.swift in Sources */,
 				FCB9EA821C8FD4BF0093F4ED /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
