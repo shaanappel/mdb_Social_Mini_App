@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC970AF91C9108EF00D5C70F /* SocialsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC970AF81C9108EF00D5C70F /* SocialsFeedViewController.swift */; };
+		FC970AFE1C9108FB00D5C70F /* SocialDetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC970AFA1C9108FB00D5C70F /* SocialDetailViewCell.swift */; };
+		FC970AFF1C9108FB00D5C70F /* NewSocialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC970AFB1C9108FB00D5C70F /* NewSocialViewController.swift */; };
+		FC970B001C9108FB00D5C70F /* SocialDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC970AFC1C9108FB00D5C70F /* SocialDetailViewController.swift */; };
+		FC970B011C9108FB00D5C70F /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC970AFD1C9108FB00D5C70F /* CollectionViewCell.swift */; };
 		FCB9EA821C8FD4BF0093F4ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB9EA811C8FD4BF0093F4ED /* AppDelegate.swift */; };
 		FCB9EA841C8FD4BF0093F4ED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB9EA831C8FD4BF0093F4ED /* ViewController.swift */; };
 		FCB9EA871C8FD4BF0093F4ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCB9EA851C8FD4BF0093F4ED /* Main.storyboard */; };
@@ -52,6 +57,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FC970AF81C9108EF00D5C70F /* SocialsFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialsFeedViewController.swift; sourceTree = "<group>"; };
+		FC970AFA1C9108FB00D5C70F /* SocialDetailViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialDetailViewCell.swift; sourceTree = "<group>"; };
+		FC970AFB1C9108FB00D5C70F /* NewSocialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSocialViewController.swift; sourceTree = "<group>"; };
+		FC970AFC1C9108FB00D5C70F /* SocialDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialDetailViewController.swift; sourceTree = "<group>"; };
+		FC970AFD1C9108FB00D5C70F /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		FCB9EA7E1C8FD4BF0093F4ED /* mdbSocialsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mdbSocialsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCB9EA811C8FD4BF0093F4ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCB9EA831C8FD4BF0093F4ED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -162,6 +172,11 @@
 			children = (
 				FCB9EAC71C8FDB590093F4ED /* Frameworks */,
 				FCB9EA811C8FD4BF0093F4ED /* AppDelegate.swift */,
+				FC970AFA1C9108FB00D5C70F /* SocialDetailViewCell.swift */,
+				FC970AFB1C9108FB00D5C70F /* NewSocialViewController.swift */,
+				FC970AFC1C9108FB00D5C70F /* SocialDetailViewController.swift */,
+				FC970AFD1C9108FB00D5C70F /* CollectionViewCell.swift */,
+				FC970AF81C9108EF00D5C70F /* SocialsFeedViewController.swift */,
 				FCB9EA831C8FD4BF0093F4ED /* ViewController.swift */,
 				FCB9EA851C8FD4BF0093F4ED /* Main.storyboard */,
 				FCB9EAD91C8FF22F0093F4ED /* SignUpViewController.swift */,
@@ -339,7 +354,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC970B001C9108FB00D5C70F /* SocialDetailViewController.swift in Sources */,
+				FC970AFE1C9108FB00D5C70F /* SocialDetailViewCell.swift in Sources */,
+				FC970B011C9108FB00D5C70F /* CollectionViewCell.swift in Sources */,
 				FCB9EAD81C8FE24B0093F4ED /* LoginViewController.swift in Sources */,
+				FC970AF91C9108EF00D5C70F /* SocialsFeedViewController.swift in Sources */,
+				FC970AFF1C9108FB00D5C70F /* NewSocialViewController.swift in Sources */,
 				FCB9EA841C8FD4BF0093F4ED /* ViewController.swift in Sources */,
 				FCB9EADA1C8FF22F0093F4ED /* SignUpViewController.swift in Sources */,
 				FCB9EA821C8FD4BF0093F4ED /* AppDelegate.swift in Sources */,
