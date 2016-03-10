@@ -43,6 +43,8 @@ class NewSocialViewController: UIViewController, UITextFieldDelegate, UINavigati
         date.keyboardType = UIKeyboardType.PhonePad
         date.addTarget(self, action: "textFieldDidChange:", forControlEvents: UIControlEvents.EditingChanged)
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

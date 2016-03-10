@@ -12,9 +12,9 @@ class SocialsFeedViewController: UIViewController, UICollectionViewDelegate, UIC
     
     var pathRow = 0
     
-    var socialImages = [UIImage(named:"bowling"), UIImage(named:"bbq"), UIImage(named:"ideaSocial"), UIImage(named:"party"), UIImage(named:"hike")]
+    var socialImages = Array<PFFile>()
     
-    var socialLabels = ["Friday Night Bowling", "Spring BBQ", "Idea Social", "Party!", "Big C Hike"]
+    var socialLabels = Array<String>()
 
     @IBOutlet weak var socialCollectionView: UICollectionView!
     
@@ -25,6 +25,17 @@ class SocialsFeedViewController: UIViewController, UICollectionViewDelegate, UIC
         
         socialCollectionView.dataSource = self
         
+        
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        socialImages.removeAll()
+        socialLabels.removeAll()
+        getSocials()
+        getSocialPics()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,18 +43,64 @@ class SocialsFeedViewController: UIViewController, UICollectionViewDelegate, UIC
         // Dispose of any resources that can be recreated.
     }
     
+    func getSocialPics() {
+        // Get the profile pictures of all the members and add them to the profPics array. Then reload the tableview.
+        let query = PFQuery(className: "Socials")
+        do {
+            let objects = try query.findObjects()
+            for object in objects {
+                socialImages.append(object["socialPicture"] as! PFFile)
+            }
+        } catch {
+            print("Error")
+        }
+        socialCollectionView.reloadData()
+    }
+    
+    func getSocials() {
+        // Get the list of all the social titles and add them to the socialLabels array. Then reload the collectionview.
+        let query = PFQuery(className:"Socials")
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            
+            if error == nil {
+                // The find succeeded.
+                print("Successfully retrieved \(objects!.count) socials.")
+                // Do something with the found objects
+                if let objects = objects {
+                    for object in objects {
+                        self.socialLabels.append(object["socialTitle"] as! String)
+                    }
+                    self.socialCollectionView.reloadData()
+                }
+            } else {
+                // Log details of the failure
+                print("Error: \(error!) \(error!.userInfo)")
+            }
+        }
+    }
+    
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return socialImages.count
+        return socialLabels.count
     }
     
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = socialCollectionView.dequeueReusableCellWithReuseIdentifier("socialCell", forIndexPath: indexPath) as! CollectionViewCell
-        cell.socialImage.image = socialImages[indexPath.item]
+        
+        // Set the image of the socialImage imageview in the cell
+        socialImages[indexPath.row].getDataInBackgroundWithBlock { (imageData: NSData?, error: NSError?) -> Void in
+            if error == nil {
+                let image1 = UIImage(data: imageData!)
+                cell.socialImage.image = image1
+            }
+            
+        }
+        
         cell.socialLabel.text = socialLabels[indexPath.item]
         cell.socialImage.contentMode = .ScaleAspectFill
         
