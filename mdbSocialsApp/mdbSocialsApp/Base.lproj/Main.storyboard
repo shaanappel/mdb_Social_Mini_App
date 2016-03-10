@@ -428,24 +428,25 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e7J-Tz-HDq">
-                                <rect key="frame" x="41" y="149" width="242" height="30"/>
+                                <rect key="frame" x="39" y="104" width="242" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YI0-yb-a7c">
-                                <rect key="frame" x="41" y="200" width="242" height="30"/>
+                                <rect key="frame" x="39" y="180" width="242" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Time" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="16M-EH-odX">
-                                <rect key="frame" x="41" y="254" width="242" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="16M-EH-odX">
+                                <rect key="frame" x="39" y="142" width="242" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r7L-l1-MKx">
-                                <rect key="frame" x="98" y="386" width="125" height="36"/>
+                                <rect key="frame" x="81" y="297" width="158" height="28"/>
                                 <color key="backgroundColor" red="0.60875912249999997" green="0.87995299179999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Upload">
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Upload Photo">
                                     <color key="titleColor" red="1" green="0.97720481370000001" blue="0.99922979109999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -463,8 +464,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQI-Jt-l1r">
-                                <rect key="frame" x="98" y="485" width="125" height="34"/>
+                                <rect key="frame" x="39" y="495" width="242" height="48"/>
                                 <color key="backgroundColor" red="0.60875912249999997" green="0.87995299179999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Post Social">
                                     <color key="titleColor" red="1" green="0.97720481370000001" blue="0.99922979109999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -478,8 +480,11 @@
                                 <color key="textColor" red="1" green="0.97720481370000001" blue="0.99922979109999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0lI-6R-Ewh">
-                                <rect key="frame" x="41" y="303" width="242" height="30"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xPa-TP-XKU">
+                                <rect key="frame" x="95" y="333" width="131" height="133"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MM/DD/YYYY" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0lI-6R-Ewh">
+                                <rect key="frame" x="39" y="218" width="242" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -491,7 +496,8 @@
                     <connections>
                         <outlet property="date" destination="0lI-6R-Ewh" id="Ets-N6-SGe"/>
                         <outlet property="location" destination="YI0-yb-a7c" id="U5d-pN-y7G"/>
-                        <outlet property="time" destination="16M-EH-odX" id="V3f-B8-Jkg"/>
+                        <outlet property="socialDescription" destination="16M-EH-odX" id="w02-IM-CXE"/>
+                        <outlet property="socialPicture" destination="xPa-TP-XKU" id="2ru-Qi-GlS"/>
                         <outlet property="titleText" destination="e7J-Tz-HDq" id="iLE-L1-bfl"/>
                     </connections>
                 </viewController>
