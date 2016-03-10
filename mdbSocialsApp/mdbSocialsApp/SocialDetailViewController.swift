@@ -20,7 +20,7 @@ class SocialDetailViewController: UIViewController {
 
     @IBOutlet weak var notGoingButton: UIButton!
     
-    @IBOutlet weak var backButton: UIButton!
+    
     
     
     override func viewDidLoad() {

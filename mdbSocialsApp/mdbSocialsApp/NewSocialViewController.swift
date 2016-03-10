@@ -16,11 +16,12 @@ class NewSocialViewController: UIViewController {
 
     @IBOutlet weak var time: UITextField!
     
-    @IBOutlet weak var backButton: UIButton!
     
     @IBOutlet weak var date: UITextField!
     
-    @IBAction func goBack(sender: AnyObject) {
+    
+    @IBAction func dismiss(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func viewDidLoad() {

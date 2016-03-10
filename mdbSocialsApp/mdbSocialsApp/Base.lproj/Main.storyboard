@@ -321,7 +321,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="fTh-kO-HEC" kind="modal" id="6LU-2q-nRw"/>
+                                    <segue destination="fTh-kO-HEC" kind="presentation" id="d1M-8d-dCJ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -336,7 +336,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q33-NP-6NZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1415" y="1167"/>
+            <point key="canvasLocation" x="1369" y="1138"/>
         </scene>
         <!--Social Detail View Controller-->
         <scene sceneID="NOj-9H-r0h">
@@ -396,16 +396,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IoZ-4K-rYS">
-                                <rect key="frame" x="0.0" y="0.0" width="79" height="52"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
-                                <state key="normal" title="&lt;">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="goBack:" destination="fTh-kO-HEC" eventType="touchUpInside" id="5HN-na-cik"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -469,8 +459,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="goBack:" destination="fTh-kO-HEC" eventType="touchUpInside" id="jEb-27-jPt"/>
-                                    <segue destination="EqV-ya-h6Q" kind="modal" id="M5G-DI-nmG"/>
+                                    <action selector="dismiss:" destination="fTh-kO-HEC" eventType="touchUpInside" id="iXL-gS-lC5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQI-Jt-l1r">
@@ -500,11 +489,9 @@
                     <navigationItem key="navigationItem" id="bzE-gN-FT9"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="backButton" destination="OIA-OQ-MQH" id="PlY-ZG-eb7"/>
                         <outlet property="date" destination="0lI-6R-Ewh" id="Ets-N6-SGe"/>
                         <outlet property="location" destination="YI0-yb-a7c" id="U5d-pN-y7G"/>
                         <outlet property="time" destination="16M-EH-odX" id="V3f-B8-Jkg"/>
-                        <outlet property="title" destination="e7J-Tz-HDq" id="dgK-Yp-Wu3"/>
                         <outlet property="titleText" destination="e7J-Tz-HDq" id="iLE-L1-bfl"/>
                     </connections>
                 </viewController>
@@ -517,7 +504,6 @@
         <image name="blue_background" width="750" height="1334"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wri-Gh-IfD"/>
         <segue reference="S9l-ZC-JyV"/>
     </inferredMetricsTieBreakers>
 </document>
