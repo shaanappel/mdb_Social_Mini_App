@@ -8,12 +8,13 @@
 
 import UIKit
 
-class SocialDetailViewController: UIViewController {
+class SocialDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var eventLabelText = ""
     var socialId = ""
     var currentUser = PFUser.currentUser()
     var goingAry = Array<String>()
-    var notGoingAry = Array<String>()
+    var notGoingAry = NSMutableArray()
+    var namesAry = Array<String>()
     
    
     @IBOutlet weak var namesTableView: UITableView!
@@ -35,6 +36,8 @@ class SocialDetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        namesTableView.delegate = self
+        namesTableView.dataSource = self
         eventLabel.text = eventLabelText
         
         socialPicture.layer.cornerRadius = socialPicture.frame.size.width/2
@@ -49,8 +52,50 @@ class SocialDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return namesAry.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = namesTableView.dequeueReusableCellWithIdentifier("socialDetailCell", forIndexPath: indexPath) as! SocialDetailViewCell
+        
+        cell.nameLabel.text = namesAry[indexPath.item]
+        
+        return cell
+    }
+    
+    func updateNamesAry (ary: NSArray) {
+        let query = PFQuery(className:"User")
+        query.whereKey("objectId", containedIn: ary as [AnyObject])
+        
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            
+            if error == nil {
+                // The find succeeded.
+                print("Successfully retrieved \(objects!.count) scores.")
+                // Do something with the found objects
+                if let objects = objects {
+                    for object in objects {
+                        self.namesAry.append(object["firstName"] as! String)
+                    }
+                    self.namesTableView.reloadData()
+                }
+            } else {
+                // Log details of the failure
+                print("Error: \(error!) \(error!.userInfo)")
+            }
+        }
+    }
+    
     func getSocialInfo() {
         // Write query to get the info of the user with the most hits. Then set the respective fields' values.
+        namesAry.removeAll()
+        
         let query = PFQuery(className:"Socials")
         query.getObjectInBackgroundWithId(socialId) {
             (social: PFObject?, error: NSError?) -> Void in
@@ -69,6 +114,40 @@ class SocialDetailViewController: UIViewController {
                 dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
                 let dateString =  dateFormatter.stringFromDate((social!["socialTime"] as? NSDate)!)
                 self.socialDate.text = dateString
+                var ary = NSArray()
+                if social?["goingUserObjectIds"] != nil {
+                    
+                    ary = social?["goingUserObjectIds"] as! NSArray
+                    print(ary)
+                    
+                }
+                
+                for objectId in ary {
+                    let query = PFQuery(className:"_User")
+                    query.whereKey("objectId", equalTo: objectId as! String)
+                    query.findObjectsInBackgroundWithBlock {
+                        (objects: [PFObject]?, error: NSError?) -> Void in
+                        
+                        if error == nil {
+                            // The find succeeded.
+                            print("Successfully retrieved \(objects!.count) scores.")
+                            // Do something with the found objects
+                            if let objects = objects {
+                                for object in objects {
+                                    self.namesAry.append(object["firstName"] as! String)
+                                }
+                                self.namesTableView.reloadData()
+                            }
+                        } else {
+                            // Log details of the failure
+                            print("Error: \(error!) \(error!.userInfo)")
+                        }
+                    }
+                    
+                }
+                self.namesTableView.reloadData()
+                
+                
                 
                 
             } else {
@@ -83,20 +162,37 @@ class SocialDetailViewController: UIViewController {
         query.getObjectInBackgroundWithId(socialId) {
             (social: PFObject?, error: NSError?) -> Void in
             if error == nil && social != nil {
-                self.goingAry = (social!["goingUserObjectIds"] as? Array<String>)!
-                self.notGoingAry = (social!["notGoingUserObjectIds"] as? Array<String>)!
-
-                if self.goingAry.contains((self.currentUser?.objectId)!) {
-                    print("Already going")
-                } else {
-                    self.goingAry.append(((self.currentUser?.objectId)!))
+                social!.addUniqueObject((self.currentUser?.objectId)!, forKey:"goingUserObjectIds")
+                social!.saveInBackground()
+                social!.removeObject((self.currentUser?.objectId)!, forKey:"notGoingUserObjectIds")
+                social!.saveInBackground()
+                
+                print((self.currentUser?.objectId)!)
+                
+                let query = PFQuery(className:"_User")
+                query.whereKey("objectId", equalTo: (self.currentUser?.objectId)!)
+                query.findObjectsInBackgroundWithBlock {
+                    (objects: [PFObject]?, error: NSError?) -> Void in
+                    
+                    if error == nil {
+                        // The find succeeded.
+                        print("Successfully retrieved \(objects!.count) scores.")
+                        // Do something with the found objects
+                        if let objects = objects {
+                            for object in objects {
+                                if !self.namesAry.contains(object["firstName"] as! String) {
+                                    self.namesAry.append(object["firstName"] as! String)
+                                }
+                            }
+                            self.namesTableView.reloadData()
+                        }
+                    } else {
+                        // Log details of the failure
+                        print("Error: \(error!) \(error!.userInfo)")
+                    }
                 }
-                if self.notGoingAry.contains((self.currentUser?.objectId)!) {
-                    let indexOfItem = self.notGoingAry.indexOf((self.currentUser?.objectId)!)
-                    self.notGoingAry.removeAtIndex(indexOfItem!)
-                }
-                social!["goingUserObjectIds"] = self.goingAry
-                social!["notGoingUserObjectIds"] = self.notGoingAry
+                
+                self.namesTableView.reloadData()
                 
                 
             } else {
@@ -112,19 +208,38 @@ class SocialDetailViewController: UIViewController {
         query.getObjectInBackgroundWithId(socialId) {
             (social: PFObject?, error: NSError?) -> Void in
             if error == nil && social != nil {
-                self.goingAry = (social!["goingUserObjectIds"] as? Array<String>)!
-                self.notGoingAry = (social!["notGoingUserObjectIds"] as? Array<String>)!
-                if self.notGoingAry.contains((self.currentUser?.objectId)!) {
-                    print("Already Not going")
-                } else {
-                    self.notGoingAry.append(((self.currentUser?.objectId)!))
+                social!.addUniqueObject((self.currentUser?.objectId)!, forKey:"notGoingUserObjectIds")
+                social!.saveInBackground()
+
+                social!.removeObject((self.currentUser?.objectId)!, forKey:"goingUserObjectIds")
+                social!.saveInBackground()
+                
+                
+                let query = PFQuery(className:"_User")
+                query.whereKey("objectId", equalTo: (self.currentUser?.objectId)!)
+                query.findObjectsInBackgroundWithBlock {
+                    (objects: [PFObject]?, error: NSError?) -> Void in
+                    
+                    if error == nil {
+                        // The find succeeded.
+                        print("Successfully retrieved \(objects!.count) scores.")
+                        // Do something with the found objects
+                        if let objects = objects {
+                            for object in objects {
+                                if self.namesAry.contains(object["firstName"] as! String) {
+                                    let indexOfItem = self.namesAry.indexOf(object["firstName"] as! String)
+                                    self.namesAry.removeAtIndex(indexOfItem!)
+                                }
+                            }
+                            self.namesTableView.reloadData()
+                        }
+                    } else {
+                        // Log details of the failure
+                        print("Error: \(error!) \(error!.userInfo)")
+                    }
                 }
-                if self.goingAry.contains((self.currentUser?.objectId)!) {
-                    let indexOfItem = self.goingAry.indexOf((self.currentUser?.objectId)!)
-                    self.notGoingAry.removeAtIndex(indexOfItem!)
-                }
-                social!["goingUserObjectIds"] = self.goingAry
-                social!["notGoingUserObjectIds"] = self.notGoingAry
+                
+                self.namesTableView.reloadData()
                 
                 
             } else {
