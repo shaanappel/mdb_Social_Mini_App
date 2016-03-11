@@ -11,6 +11,9 @@ import UIKit
 class SocialDetailViewController: UIViewController {
     var eventLabelText = ""
     var socialId = ""
+    var currentUser = PFUser.currentUser()
+    var goingAry = Array<String>()
+    var notGoingAry = Array<String>()
     
    
     @IBOutlet weak var namesTableView: UITableView!
@@ -74,6 +77,63 @@ class SocialDetailViewController: UIViewController {
         }
         
     }
+    
+    @IBAction func hitGoing(sender: AnyObject) {
+        let query = PFQuery(className:"Socials")
+        query.getObjectInBackgroundWithId(socialId) {
+            (social: PFObject?, error: NSError?) -> Void in
+            if error == nil && social != nil {
+                self.goingAry = (social!["goingUserObjectIds"] as? Array<String>)!
+                self.notGoingAry = (social!["notGoingUserObjectIds"] as? Array<String>)!
+
+                if self.goingAry.contains((self.currentUser?.objectId)!) {
+                    print("Already going")
+                } else {
+                    self.goingAry.append(((self.currentUser?.objectId)!))
+                }
+                if self.notGoingAry.contains((self.currentUser?.objectId)!) {
+                    let indexOfItem = self.notGoingAry.indexOf((self.currentUser?.objectId)!)
+                    self.notGoingAry.removeAtIndex(indexOfItem!)
+                }
+                social!["goingUserObjectIds"] = self.goingAry
+                social!["notGoingUserObjectIds"] = self.notGoingAry
+                
+                
+            } else {
+                print(error)
+            }
+        }
+        
+    }
+    
+    
+    @IBAction func hitNotGoing(sender: AnyObject) {
+        let query = PFQuery(className:"Socials")
+        query.getObjectInBackgroundWithId(socialId) {
+            (social: PFObject?, error: NSError?) -> Void in
+            if error == nil && social != nil {
+                self.goingAry = (social!["goingUserObjectIds"] as? Array<String>)!
+                self.notGoingAry = (social!["notGoingUserObjectIds"] as? Array<String>)!
+                if self.notGoingAry.contains((self.currentUser?.objectId)!) {
+                    print("Already Not going")
+                } else {
+                    self.notGoingAry.append(((self.currentUser?.objectId)!))
+                }
+                if self.goingAry.contains((self.currentUser?.objectId)!) {
+                    let indexOfItem = self.goingAry.indexOf((self.currentUser?.objectId)!)
+                    self.notGoingAry.removeAtIndex(indexOfItem!)
+                }
+                social!["goingUserObjectIds"] = self.goingAry
+                social!["notGoingUserObjectIds"] = self.notGoingAry
+                
+                
+            } else {
+                print(error)
+            }
+        }
+    }
+    
+    
     
 
     /*

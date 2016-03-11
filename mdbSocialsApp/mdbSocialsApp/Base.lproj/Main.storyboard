@@ -374,12 +374,18 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Going"/>
+                                <connections>
+                                    <action selector="hitGoing:" destination="lmv-WQ-jzw" eventType="touchUpInside" id="xw0-Ap-8EY"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="33K-G1-6SD">
                                 <rect key="frame" x="179" y="288" width="110" height="44"/>
                                 <color key="backgroundColor" red="0.91485232750000001" green="1" blue="0.98403446549999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Not Going"/>
+                                <connections>
+                                    <action selector="hitNotGoing:" destination="lmv-WQ-jzw" eventType="touchUpInside" id="HDe-7P-OPR"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="33" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WNd-UQ-RpH">
                                 <rect key="frame" x="31" y="364" width="258" height="184"/>
