@@ -12,6 +12,8 @@ class SocialsFeedViewController: UIViewController, UICollectionViewDelegate, UIC
     
     var pathRow = 0
     
+    var socialIds = Array<String>()
+    
     var socialImages = Array<PFFile>()
     
     var socialLabels = Array<String>()
@@ -25,16 +27,18 @@ class SocialsFeedViewController: UIViewController, UICollectionViewDelegate, UIC
         
         socialCollectionView.dataSource = self
         
+        getSocials()
+        getSocialPics()
         
         
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        socialImages.removeAll()
-        socialLabels.removeAll()
-        getSocials()
-        getSocialPics()
+        //socialImages.removeAll()
+        //socialLabels.removeAll()
+        //socialIds.removeAll()
+        
         
     }
 
@@ -70,6 +74,7 @@ class SocialsFeedViewController: UIViewController, UICollectionViewDelegate, UIC
                 if let objects = objects {
                     for object in objects {
                         self.socialLabels.append(object["socialTitle"] as! String)
+                        self.socialIds.append ( object.objectId!)
                     }
                     self.socialCollectionView.reloadData()
                 }
@@ -114,6 +119,8 @@ class SocialsFeedViewController: UIViewController, UICollectionViewDelegate, UIC
             let row = pathRow
             let label = socialLabels[row]
             vc.eventLabelText = label
+            vc.socialId = socialIds[row]
+            
         }
     }
     
