@@ -135,7 +135,7 @@ class NewSocialViewController: UIViewController, UITextFieldDelegate, UINavigati
         image.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         image.allowsEditing = false
         self.presentViewController(image, animated: true, completion: nil)
-        
+
         
     }
     
