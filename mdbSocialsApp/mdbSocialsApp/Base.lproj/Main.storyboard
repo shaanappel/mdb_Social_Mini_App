@@ -103,12 +103,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tld-y0-BX8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1136" y="355"/>
+            <point key="canvasLocation" x="1040" y="339"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="Lsw-KX-OlS">
             <objects>
-                <viewController id="Sn9-66-a4i" customClass="SignUpViewController" customModule="mdbSocialsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController providesPresentationContextTransitionStyle="YES" id="Sn9-66-a4i" customClass="SignUpViewController" customModule="mdbSocialsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hcV-PO-91d"/>
                         <viewControllerLayoutGuide type="bottom" id="hmL-hy-aOZ"/>
@@ -246,7 +246,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10V-Q6-iWa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1545" y="355"/>
+            <point key="canvasLocation" x="1633" y="271"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Auq-mg-o00">
@@ -263,7 +263,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="baP-Gt-7gl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="889" y="1167"/>
+            <point key="canvasLocation" x="937" y="1235"/>
         </scene>
         <!--Socials Feed View Controller-->
         <scene sceneID="TZZ-EZ-dHv">
@@ -339,7 +339,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q33-NP-6NZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1369" y="1138"/>
+            <point key="canvasLocation" x="1469" y="1138"/>
         </scene>
         <!--Social Detail View Controller-->
         <scene sceneID="NOj-9H-r0h">
@@ -622,6 +622,6 @@
         <image name="blue_background" width="750" height="1334"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="S9l-ZC-JyV"/>
+        <segue reference="Xse-Kq-J6t"/>
     </inferredMetricsTieBreakers>
 </document>

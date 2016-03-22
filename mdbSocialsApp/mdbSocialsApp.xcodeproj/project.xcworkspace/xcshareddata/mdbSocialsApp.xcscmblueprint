@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "DEF46DF02083A95328F3E041A5094F158747B8A3",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "26E0D6350AE42CEF812D7172940281EF0EE9A6A2" : 0,
+    "DEF46DF02083A95328F3E041A5094F158747B8A3" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "F8506D2A-B04F-4151-BA7D-D52D8EBA971E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "26E0D6350AE42CEF812D7172940281EF0EE9A6A2" : "",
+    "DEF46DF02083A95328F3E041A5094F158747B8A3" : "mdb_Social_Mini_App\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "mdbSocialsApp",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "mdbSocialsApp\/mdbSocialsApp.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/jessica-cherny\/CEOJokes.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "26E0D6350AE42CEF812D7172940281EF0EE9A6A2"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/shaanappel\/mdb_Social_Mini_App.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DEF46DF02083A95328F3E041A5094F158747B8A3"
+    }
+  ]
+}

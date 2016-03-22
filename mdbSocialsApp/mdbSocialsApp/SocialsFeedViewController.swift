@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  mdbSocialsApp
 //
-//  Created by Shaan Appel on 3/8/16.
-//  Copyright © 2016 Shaan Appel. All rights reserved.
+//  Created by Jessica Cherny on 3/8/16.
+//  Copyright © 2016 Jessica Cherny. All rights reserved.
 //
 
 import UIKit
@@ -74,7 +74,7 @@ class SocialsFeedViewController: UIViewController, UICollectionViewDelegate, UIC
                 if let objects = objects {
                     for object in objects {
                         self.socialLabels.append(object["socialTitle"] as! String)
-                        self.socialIds.append ( object.objectId!)
+                        self.socialIds.append(object.objectId!)
                     }
                     self.socialCollectionView.reloadData()
                 }

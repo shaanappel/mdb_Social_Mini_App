@@ -72,7 +72,7 @@ class SocialDetailViewController: UIViewController, UITableViewDelegate, UITable
         let query = PFQuery(className:"User")
         query.whereKey("objectId", containedIn: ary as [AnyObject])
         
-        query.findObjectsInBackgroundWithBlock {
+        query.findObjectsInBackgroundWithBlock { //findObjects in association with whereKey
             (objects: [PFObject]?, error: NSError?) -> Void in
             
             if error == nil {
@@ -210,7 +210,6 @@ class SocialDetailViewController: UIViewController, UITableViewDelegate, UITable
             if error == nil && social != nil {
                 social!.addUniqueObject((self.currentUser?.objectId)!, forKey:"notGoingUserObjectIds")
                 social!.saveInBackground()
-
                 social!.removeObject((self.currentUser?.objectId)!, forKey:"goingUserObjectIds")
                 social!.saveInBackground()
                 

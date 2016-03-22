@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  mdbSocialsApp
 //
-//  Created by Shaan Appel on 3/8/16.
-//  Copyright © 2016 Shaan Appel. All rights reserved.
+//  Created by Jessica Cherny on 3/8/16.
+//  Copyright © 2016 Jessica Cherny. All rights reserved.
 //
 
 import UIKit

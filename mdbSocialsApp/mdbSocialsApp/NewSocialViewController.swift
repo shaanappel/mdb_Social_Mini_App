@@ -94,6 +94,9 @@ class NewSocialViewController: UIViewController, UITextFieldDelegate, UINavigati
         if displayError != "" {
             displayAlert("Incomplete Form", displayError: displayError)
         } else {
+            //adding to the Parse data
+            //creating a new row in the socials class
+            
             var newSocial = PFObject(className:"Socials")
             newSocial["socialTitle"] = titleText.text!
             newSocial["socialInformation"] = socialDescription.text!
